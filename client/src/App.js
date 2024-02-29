@@ -3,13 +3,15 @@ import Post from "./Post";
 import Header from './Header';
 import {Route, Routes} from "react-router-dom";
 import Layout from './Layout';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Post />} />
-        <Route path={'/login'} element={<div>login page</div>} />
+        <Route index element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Route>
     </Routes>
   );

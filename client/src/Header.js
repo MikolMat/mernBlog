@@ -9,5 +9,5 @@ export default function Header(){
           <Link to="/register">Sgin up</Link>
         </nav>
       </header>
-    )
+    );
 }
