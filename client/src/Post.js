@@ -1,18 +1,23 @@
-export default function Post(){
+import {formatISO9075} from "date-fns"
+import { Link } from "react-router-dom"
+
+export default function Post({title, summary, cover, content, createdAt,author}){
   return(
     <div className="post">
     <div className="image">
-      <img src="https://www.lego.com/cdn/cs/set/assets/blt0254ea3dce736ea0/10305.png?format=webply&fit=bounds&quality=75&width=800&height=800&dpr=1" alt="lego castle" />
+      <Link to={'/post/id'}>
+        <img src={'http://localhost:4000/'+cover} alt="lego castle" />
+      </Link>
     </div>
     <div className="texts">
-      <h2>Średniowieczna przygoda wzywa LEGO®</h2>
+      <Link to={'/post/id'}>
+        <h2>{title}</h2> 
+      </Link>
       <p className="info">
-        <a className="author">Barnaba Strzalkowski</a>
-        <time>2024-02-29 18:22</time>
+        <a className="author">{author.username}</a>
+        <time>{formatISO9075(new Date(createdAt))}</time>
       </p>
-      <p className="summary">Opowieści o ekscytujących wyprawach
-        Niesamowity zestaw jest pełen niespodzianek. Odkryj wspaniałe detale z każdej strony modelu do zbudowania, a następnie otwórz go, by zajrzeć do środka. 
-      </p>
+      <p className="summary">{summary}</p>
     </div>
   </div>
   )
